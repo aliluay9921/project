@@ -133,8 +133,6 @@ class countaryController extends Controller
 
         // dd(collect($array));  // هاي حتى ترجع كلكشن مو مصفوفة 
 
-
-
         $array = [
             ['name' => 'ali', 'exam' => 8],
             ['name' => 'israa', 'exam' => 10],
@@ -165,15 +163,6 @@ class countaryController extends Controller
         //     ]
         // ];
         // dd(collect($array)->collapse()); تجمع المصفوفات المنفصلة ب مصفوفة وحدة جبيرة 
-
-
-
-
-
-
-
-
-
         // return User::latest()->first()->full_name;
         // return User::all()->pluck('id'); // ترجعلك بس الايدي فقط 
         // return User::all(['id']); // هاي هم ترجع بس id
