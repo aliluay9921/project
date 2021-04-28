@@ -45,13 +45,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $appends = ['full_name']; // هنا يجمع اكثر من اسم ب اسم واحد والفاكشن مالتة جوة 
+    protected $with = ['countaries']; //هنا راح بكل ركوست مال يوزر يرجع الكونتريز ويا 
 
     public function countaries()
     {
-        return $this->belongsTo('App\Models\Countary','countary_id');
+        return $this->belongsTo('App\Models\Countary', 'countary_id');
     }
     public function profail_user()
     {
-        return $this->hasOne('App\models\profail_user','user_id');
+        return $this->hasOne('App\models\profail_user', 'user_id');
+    }
+    function getFullNameAttribute()
+    {
+
+        return sprintf('%s %s', $this->name, $this->email);
     }
 }

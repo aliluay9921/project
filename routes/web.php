@@ -31,24 +31,29 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/countary',[App\Http\Controllers\countaryController::class, 'getcountary'])->name('countary');
-Route::post('add',[App\Http\Controllers\countaryController::class, 'addcountary'])->name('add.countary');
-Route::get('/getusercountary',[App\Http\Controllers\countaryController::class, 'getusercountary'])->name('getusercountary');
+Route::get('/countary', [App\Http\Controllers\countaryController::class, 'getcountary'])->name('countary');
+Route::post('add', [App\Http\Controllers\countaryController::class, 'addcountary'])->name('add.countary');
+Route::get('/getusercountary', [App\Http\Controllers\countaryController::class, 'getusercountary'])->name('getusercountary');
+Route::get('search', [App\Http\Controllers\countaryController::class, 'search']);
 
-Route::get('/profiluser',[App\Http\Controllers\countaryController::class, 'profil'])->name('profil');
-Route::post('add_info',[App\Http\Controllers\countaryController::class, 'addinfo'])->name('add.info');
-Route::get('/wherehas',[App\Http\Controllers\countaryController::class, 'wherehas']);
-Route::get('/getaddres',[App\Http\Controllers\countaryController::class, 'getaddres']);
-Route::get('/wherehasonly',[App\Http\Controllers\countaryController::class, 'wherehasonly']);
-
-
-Route::get('/test',[App\Http\Controllers\countaryController::class, 'test']);
-
-Route::get('/corona',[App\Http\Controllers\coronaController::class, 'index']);
-Route::get('multiimage',[App\Http\Controllers\testController::class, 'index']);
-Route::post('store/multiimage',[App\Http\Controllers\testController::class, 'store'])->name('image.upload');
+Route::get('/profiluser', [App\Http\Controllers\countaryController::class, 'profil'])->name('profil');
+Route::post('add_info', [App\Http\Controllers\countaryController::class, 'addinfo'])->name('add.info');
+Route::get('/wherehas', [App\Http\Controllers\countaryController::class, 'wherehas']);
+Route::get('/getaddres', [App\Http\Controllers\countaryController::class, 'getaddres']);
+Route::get('/wherehasonly', [App\Http\Controllers\countaryController::class, 'wherehasonly']);
 
 
+Route::get('/test', [App\Http\Controllers\countaryController::class, 'test']);
+Route::get('/test/{name}', [App\Http\Controllers\countaryController::class, 'train']);
+
+Route::get('/corona', [App\Http\Controllers\coronaController::class, 'index']);
+Route::get('multiimage', [App\Http\Controllers\testController::class, 'index']);
+Route::post('savenumber', [App\Http\Controllers\testController::class, 'savenumber'])->name('number');
+Route::post('store/multiimage', [App\Http\Controllers\testController::class, 'store'])->name('image.upload');
+Route::get('/power', [App\Http\Controllers\powerController::class, 'index']);
 
 
 
+Route::get('/getTelegeram', [App\Http\Controllers\TelegramController::class, 'get']);
+Route::get('/indexTelegeram', [App\Http\Controllers\TelegramController::class, 'index']);
+Route::post('/storeTelegeram', [App\Http\Controllers\TelegramController::class, 'store'])->name('storeTelegram');
